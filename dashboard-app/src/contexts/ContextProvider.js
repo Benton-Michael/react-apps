@@ -18,6 +18,7 @@ export const ContextProvider = ({ children }) => {
         value={{ 
             // test: 'test' 
             activeMenu,
+            setActiveMenu,
     }}
     >
         { children }

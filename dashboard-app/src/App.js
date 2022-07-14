@@ -3,13 +3,33 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
-import { Ecommerce, Employees, Orders, Calendar, Stacked, Pyramid, Customers, 
-  Kanban, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor, Line} from './pages';
+import {
+  Ecommerce,
+  Employees,
+  Orders,
+  Calendar,
+  Stacked,
+  Pyramid,
+  Customers,
+  Kanban,
+  Area,
+  Bar,
+  Pie,
+  Financial,
+  ColorPicker,
+  ColorMapping,
+  Editor,
+  Line,
+} from "./pages";
+
+import { useStateContext } from "./contexts/ContextProvider";
 
 import "./App.css";
 
 const App = () => {
-  const activeMenu = true;
+  // hook for activeMenu
+  const { activeMenu } = useStateContext();
+  // const activeMenu = true; -- A static value of true is no longer needed now that the above hook is written
 
   return (
     <div>
@@ -35,7 +55,7 @@ const App = () => {
             <div className="w-0 dark:bg-secondary-dark-bg">
               {/* Sidebar */}
               <Sidebar />
-              </div>
+            </div>
           )}
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
