@@ -26,10 +26,10 @@ const Sidebar = () => {
               onClick={() => setActiveMenu(false)}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
             >
-              <SiShopware /> <span> ShoppeBox </span>
+              <SiShopware /> <span> DotShoppe </span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
-              {/* using the previous state to toggle on/off the activeMenu */}
+              {/* using the previous state, prev, to toggle on/off the activeMenu */}
               <button
                 type="button"
                 onClick={() =>
