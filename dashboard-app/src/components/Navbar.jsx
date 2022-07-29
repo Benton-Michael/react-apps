@@ -23,15 +23,42 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       <span
         style={{ background: dotColor }}
         className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
-      >
+      />
         {icon}
-      </span>
+      
     </button>
   </TooltipComponent>
 );
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize } = useStateContext();
+
+  // The second parameter in useEffect is the dependency array. It tells us when
+  // this is going to be called
+  // For example, [] or nothing put here, it will only be called at the start
+  // If we put screenSize here, it would be called everytime the screenSize changes
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener('resize', handleResize)
+
+    // calling to find the initial width
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+
+  }, []);
+
+  // With addition of second useEffect we're now tracking the size of our screen.
+  // with these useEffect, the sidebar will automatically be hidden on small screens.
+  useEffect(() => {
+    if(screenSize <= 900) {
+        setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+
+  }, [screenSize]);
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
