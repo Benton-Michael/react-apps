@@ -32,7 +32,7 @@ const Ecommerce = () => {
           </div>
         </div>
           {/* cards, for each card we return a div with an item key */}
-          {/* there are 4 cards total 2 left, 2 right, one per icon */}
+          {/* there are 4 cards total, one per icon: Customers, products, sales, refunds */}
         <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
           {earningData.map((item)=>(
             <div
@@ -43,15 +43,35 @@ const Ecommerce = () => {
                 <button type="button"
                 style= {{ color: item.iconColor, 
                 backgroundColor: item.iconBg }}
-                className="text-2xl opacity-0.9 rounded-full hover:drop-shadow-xl">
+                className="text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl">
                   {item.icon}
                 </button>
+                <p className="mt-3">
+                  <span className="text-lg font-semibold">
+                    {item.amount}
+                  </span>
+                  {/* this span is dynamic, so using a template string */}
+                  {/* tailwind bug encountered here. In order to bring in pcColor, we need to 
+                  first apply both the red and the green colors i.e. text-red-600 manually first*/}
+                  <span className={`text-sm text-${item.pcColor} ml-2`}>
+                    {item.percentage}
+                  </span>
+                </p>
+                <p className="text-sm text-gray-400 mt-1">
+                  {item.title}
+                </p>
               </div>
           ))}
-
         </div>
-
       </div>
+
+      {/* Revenue updates card */}
+      <div className="flex gap-10 flex-wrap justify-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
+            
+        </div>
+      </div>
+      
     </div>
   );
 };
