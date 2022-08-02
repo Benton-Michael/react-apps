@@ -2,11 +2,7 @@ import React from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
 import { Stacked, Pie, Button, SparkLine } from "../components"; // our components
-import {
-  earningData,
-  SparklineAreaData,
-  ecomPieChartData,
-} from "../data/dummy"; // Data is correct
+import { earningData,SparklineAreaData,ecomPieChartData } from "../data/dummy"; // Data is correct
 
 import { useStateContext } from "../contexts/ContextProvider";
 
@@ -62,7 +58,7 @@ const Ecommerce = () => {
         </div>
       </div>
 
-      {/* Revenue updates card begin */}
+      {/* Revenue updates cards/ section begin */}
       <div className="flex gap-10 flex-wrap justify-center">
         {/* adding the white strip between top and bottom of the page */}
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780">
@@ -122,8 +118,25 @@ const Ecommerce = () => {
                   color="blue"
                 />
               </div>
-
+              {/* Download Report button */}
+              <div className="mt-10">
+                <Button 
+                  color="white"
+                  bgColor="blue"
+                  text="Download Report"
+                  borderRadius="10px"
+                />
+              </div>
             </div>
+              {/* Chart with a toggle on/off representing Expense or Budget data */}
+              <div>
+                <Stacked 
+                  width="320px"
+                  height="360px"
+                
+                />
+              </div>
+
           </div>
         </div>
       </div>
