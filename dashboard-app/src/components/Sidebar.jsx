@@ -12,11 +12,10 @@ const Sidebar = () => {
 
   const handleCloseSidebar = () => {
     // check if activeMenu is true and if the screen is <= 900
-    if(activeMenu && screenSize <=900) {
+    if (activeMenu && screenSize <= 900) {
       setActiveMenu(false);
     }
-
-  }
+  };
 
   const activeLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2";
@@ -32,7 +31,7 @@ const Sidebar = () => {
             <Link
               to="/"
               // onClick={() => setActiveMenu(false)} --replaced by code below--
-              onclick={ handleCloseSidebar }
+              onClick={handleCloseSidebar}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
             >
               <SiShopware /> <span> DotShoppe </span>
